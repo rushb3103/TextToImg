@@ -5,4 +5,4 @@ Stable Diffusion is a latent text-to-image diffusion model. Thanks to a generous
 
 # Output:
 Dog and cat on the ground
-(h)
+(test.jpg)
