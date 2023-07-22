@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .title {
+            margin: 5px;
+        }
+
+        .content {
+            margin: 5px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .image {
+            flex: 20%;
+            padding: 10px;
+            margin: 5px;
+            background-color: #f3f3f3;
+            inline-size: 100%;
+        }
+
+        #picture {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex">
+        <svg xmlns="http://www.w3.org/2000/svg" class="my-3 py-2" height="44" width="44"
+            viewBox="0 0 448 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+                d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+        </svg>
+        <a href="/.." class="me-5 my-3 pe-5 py-2 fs-5">Back</a>
+    </div>
+
+    <form class="d-flex row g-3 ms-5 ps-3" action="{{ url_for('gethistory')}}" method="post">
+        <div class="col-auto">
+            <input class="form-control" id="input2" placeholder="Search" name="search" required>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Go</button>
+        </div>
+    {% block content %}
+    <div class="content">
+        </form>
+        {% for image in images %}
+        <div class="image">
+            <p><b>#{{ image.id }}</b></p>
+            <b>
+                <p class="name">{{ image.name }}</p>
+            </b>
+            <p>Clip Score : {{ image.clip_score }}</p>
+            <img id="picture" src="data:image/jpeg;base64,{{ image.img_data }}">
+            <p>{{ image.pic_date }}</p>
+
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
