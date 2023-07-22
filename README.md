@@ -5,4 +5,5 @@ Stable Diffusion is a latent text-to-image diffusion model. Thanks to a generous
 
 # Output:
 Dog and cat on the ground
-(test.jpg)
+
+![test](https://github.com/rushb3103/TextToImg/assets/104963926/802f7c54-7233-435d-8426-e81a94ae1817)
